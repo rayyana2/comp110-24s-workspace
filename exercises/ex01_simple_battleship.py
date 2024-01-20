@@ -42,7 +42,7 @@ if ship_number_p2 == ship_number_p1:
     result: str = RED_BOX
 else:
     print("Incorrect! You missed the ship.")
-    result: str = WHITE_BOX
+    result = WHITE_BOX
 
 # implementing visuals
 if ship_number_p2 == 1:
