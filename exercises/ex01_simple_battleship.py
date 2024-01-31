@@ -32,10 +32,6 @@ RED_BOX: str = "\U0001F7E5"
 WHITE_BOX: str = "\U00002B1C"
 
 # victory or defeat
-if ship_number_p2 == ship_number_p1:
-    print("Correct! You hit the ship.")
-else:
-    print("Incorrect! You missed the ship.")
     
 if ship_number_p2 == ship_number_p1:
     print("Correct! You hit the ship.")
