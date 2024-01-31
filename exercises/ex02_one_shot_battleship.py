@@ -18,31 +18,35 @@ column_guess: int = int(input("Guess a column: "))
 while column_guess > grid_size or column_guess < 1:
     column_guess = int(input(f"The grid is only {grid_size} by {grid_size}. Try again: "))
 
-# results in boxes
+# result boxes
 if row_guess == secret_row and column_guess == secret_column:
     result_box: str = RED_BOX
 else:
     result_box = WHITE_BOX
 
+# making the picture
 row_index: int = 1
-
 while row_index <= grid_size:
     row_string: str = ""
     column_index: int = 1
     if row_guess == row_index:
-        while column_index <= 4:
+        while column_index <= grid_size:
             if column_guess == column_index:
                 row_string += result_box
             else:
-                row_string += f"{BLUE_BOX}"
+                row_string += BLUE_BOX
             column_index += 1
     else:
-        row_string = f"{BLUE_BOX + BLUE_BOX + BLUE_BOX + BLUE_BOX}"
+        row_string += BLUE_BOX*grid_size
     print(row_string)
     row_index = row_index + 1
 
 # results in words
 if row_guess == secret_row and column_guess == secret_column:
     print("Hit!")
+elif row_guess == secret_row:
+    print("Close! Correct row, wrong column.")
+elif column_guess == secret_column:
+    print("Close! Correct column, wrong row.")
 else:
     print("Miss!")
