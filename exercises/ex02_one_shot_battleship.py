@@ -1,5 +1,5 @@
-"""Battleship with 4x4 grid"""
-___author___: str = "730656243"
+"""Battleship with grid."""
+__author__: str = "730656243"
 
 # grid variables
 grid_size: int = 4
@@ -37,7 +37,7 @@ while row_index <= grid_size:
                 row_string += BLUE_BOX
             column_index += 1
     else:
-        row_string += BLUE_BOX*grid_size
+        row_string += BLUE_BOX * grid_size
     print(row_string)
     row_index = row_index + 1
 
