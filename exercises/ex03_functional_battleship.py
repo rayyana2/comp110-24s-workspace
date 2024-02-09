@@ -61,7 +61,7 @@ def main(grid_size: int, secret_row: int, secret_column: int) -> None:
         print(f"=== Turn {turn_idx}/5 ===")
         row_guess: int = input_guess(grid_size, "row")
         column_guess: int = input_guess(grid_size, "column")
-        correct = correct_guess(secret_column, secret_column, row_guess, column_guess)
+        correct = correct_guess(secret_row, secret_column, row_guess, column_guess)
         print_grid(grid_size, row_guess, column_guess, correct)
         if row_guess == secret_row and column_guess == secret_column:
             print("Hit!")
@@ -71,7 +71,7 @@ def main(grid_size: int, secret_row: int, secret_column: int) -> None:
             print("Miss!")
         turn_idx += 1
     if turn_idx > 5:
-        print(f"{turn_idx}/6 - Better luck next time!")
+        print(f"X/6 - Better luck next time!")
 
 if __name__ == "__main__":
         grid_size: int = random.randint(3, 5)
