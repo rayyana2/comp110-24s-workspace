@@ -2,6 +2,7 @@
 __author__: str = "730656243"
 import random
 
+# creates variables for user's guess
 def input_guess(grid_size: int, row_or_column: str) -> int:
     assert row_or_column == "row" or row_or_column == "column"
     if row_or_column == "row":
@@ -15,16 +16,19 @@ def input_guess(grid_size: int, row_or_column: str) -> int:
             column_guess = int(input(f"The grid is only {grid_size} by {grid_size}. Try again: "))
         return column_guess
 
+# checks if guess is equal to secret
 def correct_guess(secret_row: int, secret_column: int, row_guess: int, column_guess: int) -> bool:
     if row_guess == secret_row and column_guess == secret_column:
         return True
     else:
         return False
 
+# emoji strings
 BLUE_BOX: str = "\U0001F7E6"
 RED_BOX: str = "\U0001F7E5"
 WHITE_BOX: str = "\U00002B1C"
 
+# prints grid of emojis based on correct or incorrect guess
 def print_grid(grid_size: int, row_guess: int, column_guess: int, correct: bool) -> None:
     if correct:
         result_box: str = RED_BOX
@@ -46,6 +50,7 @@ def print_grid(grid_size: int, row_guess: int, column_guess: int, correct: bool)
         print(row_string)
         row_index = row_index + 1
 
+# gives player 5 guesses to find secret location
 def main(grid_size: int, secret_row: int, secret_column: int) -> None:
     grid_size = grid_size
     secret_row: int = secret_row
