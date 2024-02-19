@@ -2,8 +2,9 @@
 __author__: str = "730656243"
 import random
 
-# creates variables for user's guess
+
 def input_guess(grid_size: int, row_or_column: str) -> int:
+    """Creates variables for user's guess."""
     assert row_or_column == "row" or row_or_column == "column"
     if row_or_column == "row":
         row_guess: int = int(input("Guess a row: "))
@@ -16,20 +17,23 @@ def input_guess(grid_size: int, row_or_column: str) -> int:
             column_guess = int(input(f"The grid is only {grid_size} by {grid_size}. Try again: "))
         return column_guess
 
-# checks if guess is equal to secret
+
 def correct_guess(secret_row: int, secret_column: int, row_guess: int, column_guess: int) -> bool:
+    """Checks if guess is equal to secret."""
     if row_guess == secret_row and column_guess == secret_column:
         return True
     else:
         return False
+
 
 # emoji strings
 BLUE_BOX: str = "\U0001F7E6"
 RED_BOX: str = "\U0001F7E5"
 WHITE_BOX: str = "\U00002B1C"
 
-# prints grid of emojis based on correct or incorrect guess
+
 def print_grid(grid_size: int, row_guess: int, column_guess: int, correct: bool) -> None:
+    """Prints grid of emojis based on correct or incorrect guess."""
     if correct:
         result_box: str = RED_BOX
     else:
@@ -50,14 +54,15 @@ def print_grid(grid_size: int, row_guess: int, column_guess: int, correct: bool)
         print(row_string)
         row_index = row_index + 1
 
-# gives player 5 guesses to find secret location
+
 def main(grid_size: int, secret_row: int, secret_column: int) -> None:
+    """Gives player 5 guesses to find secret location."""
     grid_size = grid_size
-    secret_row: int = secret_row
-    secret_column: int = secret_column
+    secret_row = secret_row
+    secret_column = secret_column
     turn_idx: int = 1
     win: bool = False
-    while turn_idx <= 5 and win == False:
+    while turn_idx <= 5 and not win:
         print(f"=== Turn {turn_idx}/5 ===")
         row_guess: int = input_guess(grid_size, "row")
         column_guess: int = input_guess(grid_size, "column")
@@ -66,13 +71,14 @@ def main(grid_size: int, secret_row: int, secret_column: int) -> None:
         if row_guess == secret_row and column_guess == secret_column:
             print("Hit!")
             print(f"You won in {turn_idx}/5 turns!")
-            win: bool = True
+            win = True
         else:
             print("Miss!")
         turn_idx += 1
     if turn_idx > 5:
-        print(f"X/6 - Better luck next time!")
+        print("X/5 - Better luck next time!")
+
 
 if __name__ == "__main__":
-        grid_size: int = random.randint(3, 5)
-        main(grid_size, random.randint(1, grid_size), random.randint(1, grid_size))
+    grid_size: int = random.randint(3, 5)
+    main(grid_size, random.randint(1, grid_size), random.randint(1, grid_size))
