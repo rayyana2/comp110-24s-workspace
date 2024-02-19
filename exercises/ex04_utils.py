@@ -10,6 +10,8 @@ def all(input_list: list[int], num: int) -> bool:
             return False
         else:
             list_idx += 1
+    if len(input_list) == 0:
+        return False
     return True
 
 
