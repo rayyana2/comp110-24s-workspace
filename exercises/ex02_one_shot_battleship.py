@@ -37,7 +37,11 @@ while row_index <= grid_size:
                 row_string += BLUE_BOX
             column_index += 1
     else:
+<<<<<<< HEAD
         row_string += BLUE_BOX * grid_size
+=======
+        row_string += BLUE_BOX*grid_size
+>>>>>>> 3917b5b5f26c118e61b4b183c2ce1c4f2157d7cf
     print(row_string)
     row_index = row_index + 1
 
